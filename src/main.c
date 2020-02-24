@@ -18,29 +18,20 @@
  #include <stdlib.h>
 
 int main(void){
-  int* tab; //le tableau à trier
-  int n; //la taille du tableau à trier
   int choix; //le choix de l'utilisateur
-  printf("Quelle est la taile de votre tableau ?\n");
-  n=saisirEntier();
-  tab=creerTabEntier1D(n);
-  saisirTabEntier1D(tab, n);
-  system("clear");
-  printf("Voici votre tableau :\n");
-  afficherTab(tab, n);
-  printf("\nQuel tri souhaiter vous réaliser ?\n1-Tri par sélection\n2-Tri à bulles\n3-Tri par insertion\n");
+  printf("Que voulez vous faire ?\n1-Trier un tableau d'entier\n2-Trier un tableau de Vrai/Faux\n3-Trier un tableau d'éléments de couleur\n4-Savoir si un tableau est trié\n\n");
   choix=saisirEntier();
-  switch (choix){
-    case 1 : triSelection(tab, n);
+  switch (choix) {
+    case 1 : triTabEntier();
     break;
-    case 2 : triBulle(tab, n);
+    case 2 : triVF();
     break;
-    case 3 : triInsertion(tab, n);
+    case 3 : triCouleur();
     break;
-    default : printf("Ce choix n'existe pas...");
+    case 4 : estTrie();
+    break;
+    default : printf("Ce choix n'existe pas... Vous allez quitter le programme.\n");
     break;
   }
-  printf("\nVoici le tableau trié :\n");
-  afficherTab(tab, n);
   return(0);
 }

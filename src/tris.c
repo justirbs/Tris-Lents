@@ -15,6 +15,37 @@
 
 // Code des fonctions et procédures
 
+void triTabEntier(void){
+  int* tab; //le tableau à trier
+  int n; //la taille du tableau à trier
+  int choix; //le choix de l'utilisateur
+  printf("Quelle est la taile de votre tableau ?\n");
+  do{
+    n=saisirEntier();
+  } while(n<=0);
+  tab=creerTabEntier1D(n);
+  saisirTabEntier1D(tab, n);
+  system("clear");
+  printf("Voici votre tableau :\n");
+  afficherTab(tab, n);
+  printf("\nQuel tri souhaiter vous réaliser ?\n1-Tri par sélection\n2-Tri à bulles\n3-Tri par insertion\n");
+  choix=saisirEntier();
+  switch (choix){
+    case 1 : triSelection(tab, n);
+    break;
+    case 2 : triBulle(tab, n);
+    break;
+    case 3 : triInsertion(tab, n);
+    break;
+    default : printf("Ce choix n'existe pas...");
+    break;
+  }
+  printf("\nVoici le tableau trié :\n");
+  afficherTab(tab, n);
+  free(tab);
+}
+
+
 void triSelection(int* tab, int n){
   int i; //iterrateur de boucle
   int j; //iterrateur de boucle
@@ -65,4 +96,65 @@ void triInsertion(int* tab, int n){
     }
     tab[j]=tmp;
   }
+}
+
+void triVF(void){
+  int* tab; //le tableau à trier
+  int n; //la taille du tableau à trier
+  printf("Quelle est la taile de votre tableau ?\n");
+  do{
+    n=saisirEntier();
+  }while(n<=0);
+  tab=creerTabEntier1D(n);
+  saisirTabVF(tab, n);
+  system("clear");
+  printf("Voici votre tableau :\n");
+  afficherTab(tab, n);
+  triInsertion(tab, n);
+  printf("\nVoici le tableau trié :\n");
+  afficherTab(tab, n);
+  free(tab);
+}
+
+void  triCouleur(void){
+  int* tab; //le tableau à trier
+  int n; //la taille du tableau à trier
+  printf("Quelle est la taile de votre tableau ?\n");
+  do{
+    n=saisirEntier();
+  }while(n<=0);
+  tab=creerTabEntier1D(n);
+  saisirTabCouleur(tab, n);
+  system("clear");
+  printf("Voici votre tableau :\n");
+  afficherTab(tab, n);
+  triInsertion(tab, n);
+  printf("\nVoici le tableau trié :\n");
+  afficherTab(tab, n);
+  free(tab);
+}
+
+void  estTrie(void){
+  int* tab; //le tableau à trier
+  int n; //la taille du tableau à trier
+  int i; //iterrateur de boucle
+  int estCroissant; //variable booléenne
+  printf("Quelle est la taile de votre tableau ?\n");
+  do{
+    n=saisirEntier();
+  }while(n<=0);
+  tab=creerTabEntier1D(n);
+  saisirTabEntier1D(tab, n);
+  estCroissant=1;
+  for(i=0; i<n-1; i++){
+    if(tab[i]>tab[i+1]){
+      estCroissant=0;
+    }
+  }
+  if(estCroissant){
+    printf("Le tableau est trié\n");
+  } else {
+    printf("Le tableau n'est pas trié\n");
+  }
+  free(tab);
 }

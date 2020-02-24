@@ -63,4 +63,36 @@ void saisirTabEntier1D(int* tab, int n);
  */
 void afficherTab(int* tab, int n);
 
+/**
+ *\fn void saisirTabVF(int* tab, int n)
+ *
+ *\author Justine Ribas <ribasjusti@eisti.eu>
+ *\version 0.1
+ *\date 24 février 2020
+ *
+ *\brief permet de saisir un tableau de 0 et 1
+ *
+ *
+ *\param tab le tableau à afficher
+ *\param n la taille du tableau
+ *
+ */
+ void saisirTabVF(int* tab, int n);
+
+ /**
+  *\fn void saisirTabCouleur(int* tab, int n)
+  *
+  *\author Justine Ribas <ribasjusti@eisti.eu>
+  *\version 0.1
+  *\date 24 février 2020
+  *
+  *\brief permet de saisir un tableau de 0, 1 et 2
+  *
+  *
+  *\param tab le tableau à afficher
+  *\param n la taille du tableau
+  *
+  */
+void saisirTabCouleur(int* tab, int n);
+
 #endif
