@@ -28,14 +28,12 @@ void triTabEntier(void){
   system("clear");
   printf("Voici votre tableau :\n");
   afficherTab(tab, n);
-  printf("\nQuel tri souhaiter vous réaliser ?\n1-Tri par sélection\n2-Tri à bulles\n3-Tri par insertion\n");
+  printf("\nQuel tri souhaiter vous réaliser ?\n1-Tri par sélection\n2-Tri par insertion\n");
   choix=saisirEntier();
   switch (choix){
-    case 1 : triSelection(tab, n);
+    case 1 : triSelectionR(tab, n, 0);
     break;
-    case 2 : triBulle(tab, n);
-    break;
-    case 3 : triInsertion(tab, n);
+    case 2 : triInsertionR(tab, n);
     break;
     default : printf("Ce choix n'existe pas...");
     break;
@@ -45,7 +43,7 @@ void triTabEntier(void){
   free(tab);
 }
 
-
+/*
 void triSelection(int* tab, int n){
   int i; //iterrateur de boucle
   int j; //iterrateur de boucle
@@ -64,7 +62,9 @@ void triSelection(int* tab, int n){
   }
   printf("\n\n");
 }
+*/
 
+/*
 void triBulle(int* tab, int n){
   int i; //iterrateur de boucle
   int estTrie; //variable booléeene qui indique si un tableau est trié ou non
@@ -82,6 +82,7 @@ void triBulle(int* tab, int n){
     }
   }
 }
+*/
 
 void triInsertion(int* tab, int n){
   int i; //iterrateur de boucle
@@ -258,5 +259,40 @@ void  triCoktail(void){
     }
   }
   printf("Voici votre tableau trié :\n");
-  afficherTab(tab, n);  
+  afficherTab(tab, n);
+  free(tab);
+}
+
+void  triSelectionR(int* tab, int n, int indice){
+  int min; //l'indice du minimum
+  int i; //iterrateur de boucle
+  int tmp; //variable pour effectuer un échange
+  min=indice;
+  for(i=indice+1; i<n; i++){
+    if(tab[i]<tab[min]){
+      min=i;
+    }
+  }
+  tmp=tab[min];
+  tab[min]=tab[indice];
+  tab[indice]=tmp;
+  if(indice+1<n){
+    triSelectionR(tab, n, indice+1);
+  }
+}
+
+void  triInsertionR(int* tab, int n){
+  int fin; //la dernière case du tableau comparée
+  int i; //iterrateur de boucle
+  if(n<=1){
+    return;
+  }
+  triInsertionR(tab, n-1);
+  fin=tab[n-1];
+  i=n-2;
+  while(i>=0 && tab[i]>fin){
+    tab[i+1]=tab[i];
+    i--;
+  }
+  tab[i+1]=fin;
 }

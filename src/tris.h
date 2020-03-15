@@ -22,9 +22,9 @@
   *
   *\author Justine Ribas <ribasjusti@eisti.eu>
   *\version 0.1
-  *\date 24 février 2020
+  *\date 15 mars 2020
   *
-  *\brief permet de trier un tableau d'entier
+  *\brief permet de trier un tableau d'entiers par insertion ou sélection de façon récursive
   *
   *
   */
@@ -151,5 +151,38 @@ void  triInsertionD(void);
  *
  */
 void  triCoktail(void);
+
+/**
+ *\fn void  triSelectionR(int* tab, int n, int indice)
+ *
+ *\author Justine Ribas <ribasjusti@eisti.eu>
+ *\version 0.1
+ *\date 15 mars 2020
+ *
+ *\brief permet de trier un tableau par sélection de façon récursive
+ *
+ *
+ *\param tab le tableau à trier
+ *\param n la taille du tableau
+ *\param indice l'indice à partir duquel on parcourt le tableau
+ *
+ */
+void  triSelectionR(int* tab, int n, int indice);
+
+/**
+ *\fn void  triInsertionR(int* tab, int n)
+ *
+ *\author Justine Ribas <ribasjusti@eisti.eu>
+ *\version 0.1
+ *\date 15 mars 2020
+ *
+ *\brief permet de trier un tableau par insertion de façon récursive
+ *
+ *
+ *\param tab le tableau à trier
+ *\param n la taille du tableau
+ *
+ */
+void  triInsertionR(int* tab, int n);
 
 #endif

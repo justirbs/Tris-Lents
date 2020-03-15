@@ -19,7 +19,7 @@
 
 int main(void){
   int choix; //le choix de l'utilisateur
-  printf("Que voulez vous faire ?\n1-Savoir si un tableau est trié\n2-Insérer une nouvelle valeur dans un tableau trié\n3-Trier un tableau par insertion dans l'ordre  décroissant\n4-Trier un tableau par le tri coktail\n5-Trier un tableau pas insertion ou par sélection de manière récursive\n\n");
+  printf("Que voulez vous faire ?\n1-Savoir si un tableau est trié\n2-Insérer une nouvelle valeur dans un tableau trié\n3-Trier un tableau par insertion dans l'ordre  décroissant\n4-Trier un tableau par le tri coktail\n5-Trier un tableau pas insertion ou par sélection de manière récursive\n6-Trier un tableau de Vrai et de Faux\n\n");
   choix=saisirEntier();
   switch (choix) {
     /*Question 1*/
@@ -37,7 +37,11 @@ int main(void){
     case 4 : triCoktail();
     //Quand la plus petite valeur du tableau se trouve tout à droite, le tri coktail est bien plus eficace que le tri à bulle car il permet de faire descendre la valeur bien plus rapidement
     break;
-    case 5 :
+    /*Question 5*/
+    case 5 : triTabEntier();
+    break;
+    /*Question 6*/
+    case 6 : 
     break;
     default : printf("Ce choix n'existe pas... Vous allez quitter le programme.\n");
     break;
