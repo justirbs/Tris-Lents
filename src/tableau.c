@@ -59,3 +59,17 @@ void saisirTabCouleur(int* tab, int n){
     } while (tab[i]!=0 && tab[i]!=1 && tab[i]!=2);
   }
 }
+
+int* agrandirTab(int* tab1, int n, int valeur, int indice){
+  int* tab2; //le nouveau tableau
+  int i; //iterrateur de boucle
+  tab2=creerTabEntier1D(n+1);
+  for(i=0; i<indice; i++){
+    tab2[i]=tab1[i];
+  }
+  tab2[indice]=valeur;
+  for(i=indice+1; i<n+1; i++){
+    tab2[i]=tab1[i-1];
+  }
+  return(tab2);
+}

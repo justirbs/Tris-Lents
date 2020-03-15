@@ -19,16 +19,25 @@
 
 int main(void){
   int choix; //le choix de l'utilisateur
-  printf("Que voulez vous faire ?\n1-Trier un tableau d'entier\n2-Trier un tableau de Vrai/Faux\n3-Trier un tableau d'éléments de couleur\n4-Savoir si un tableau est trié\n\n");
+  printf("Que voulez vous faire ?\n1-Savoir si un tableau est trié\n2-Insérer une nouvelle valeur dans un tableau trié\n3-Trier un tableau par insertion dans l'ordre  décroissant\n4-Trier un tableau par le tri coktail\n5-Trier un tableau pas insertion ou par sélection de manière récursive\n\n");
   choix=saisirEntier();
   switch (choix) {
-    case 1 : triTabEntier();
+    /*Question 1*/
+    case 1 : estTrie();
     break;
-    case 2 : triVF();
+    /*Question 2*/
+    case 2 : insereValeur();
+    //Dans le pire des cas, la complexité est de l'ordre de n² pour trier le tableau et de n pour insérer la valeur
     break;
-    case 3 : triCouleur();
+    /*Question 3*/
+    case 3 : triInsertionD();
+    //Il serait possible d'insérer une valeur en appliquant une recherche dichotomique, ainsi nous réduirons de n/2 le nombre de comparaisons
     break;
-    case 4 : estTrie();
+    /*Question 4*/
+    case 4 : triCoktail();
+    //Quand la plus petite valeur du tableau se trouve tout à droite, le tri coktail est bien plus eficace que le tri à bulle car il permet de faire descendre la valeur bien plus rapidement
+    break;
+    case 5 :
     break;
     default : printf("Ce choix n'existe pas... Vous allez quitter le programme.\n");
     break;

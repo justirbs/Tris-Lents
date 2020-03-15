@@ -79,20 +79,39 @@ void afficherTab(int* tab, int n);
  */
  void saisirTabVF(int* tab, int n);
 
- /**
-  *\fn void saisirTabCouleur(int* tab, int n)
-  *
-  *\author Justine Ribas <ribasjusti@eisti.eu>
-  *\version 0.1
-  *\date 24 février 2020
-  *
-  *\brief permet de saisir un tableau de 0, 1 et 2
-  *
-  *
-  *\param tab le tableau à afficher
-  *\param n la taille du tableau
-  *
-  */
+/**
+ *\fn void saisirTabCouleur(int* tab, int n)
+ *
+ *\author Justine Ribas <ribasjusti@eisti.eu>
+ *\version 0.1
+ *\date 24 février 2020
+ *
+ *\brief permet de saisir un tableau de 0, 1 et 2
+ *
+ *
+ *\param tab le tableau à afficher
+ *\param n la taille du tableau
+ *
+ */
 void saisirTabCouleur(int* tab, int n);
+
+/**
+ *\fn int* agrandirTab(int* tab1, int n, int valeur, int indice)
+ *
+ *\author Justine Ribas <ribasjusti@eisti.eu>
+ *\version 0.1
+ *\date 14 mars 2020
+ *
+ *\brief permet d'agrandir un tableau et d'y insérer une valeur
+ *
+ *
+ *\param tab le tableau à agrandir
+ *\param n la taille du tableau
+ *\param valeur la valeur à Insérer
+ *\param indice la place de la nouvelle valeur
+ *\return le nouveau tableau
+ *
+ */
+int* agrandirTab(int* tab1, int n, int valeur, int indice);
 
 #endif

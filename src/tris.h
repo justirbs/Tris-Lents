@@ -116,4 +116,40 @@ void  triCouleur(void);
  */
 void  estTrie(void);
 
+/**
+ *\fn void  insereValeur(void)
+ *
+ *\author Justine Ribas <ribasjusti@eisti.eu>
+ *\version 0.1
+ *\date 14 mars 2020
+ *
+ *\brief permet d'insérer une valeur dans un tableau trié
+ *
+ */
+ void  insereValeur(void);
+
+/**
+ *\fn void  triInsertionD(void)
+ *
+ *\author Justine Ribas <ribasjusti@eisti.eu>
+ *\version 0.1
+ *\date 14 mars 2020
+ *
+ *\brief permet de trier un tableau par insertion dans l'ordre décroissant
+ *
+ */
+void  triInsertionD(void);
+
+/**
+ *\fn void  triCoktail(void)
+ *
+ *\author Justine Ribas <ribasjusti@eisti.eu>
+ *\version 0.1
+ *\date 15 mars 2020
+ *
+ *\brief permet de trier un tableau par le tri coktail
+ *
+ */
+void  triCoktail(void);
+
 #endif

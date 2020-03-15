@@ -158,3 +158,105 @@ void  estTrie(void){
   }
   free(tab);
 }
+
+void  insereValeur(void){
+  int* tab1; //le tableau à agrandir
+  int* tab2; //le nouveau tableau
+  int n; //la taille du tableau à trier
+  int valeur; //la valeur à insérer
+  int indice; //la place de la valeur
+  int i; //iterrateur de boucle
+  i=0;
+  indice=0;
+  printf("Quelle est la taile de votre tableau ?\n");
+  do{
+    n=saisirEntier();
+  } while(n<=0);
+  tab1=creerTabEntier1D(n);
+  saisirTabEntier1D(tab1, n);
+  system("clear");
+  triInsertion(tab1, n);
+  printf("Voici votre tableau trié:\n");
+  afficherTab(tab1, n);
+  printf("Quelle est la valeur que vous voulez insérer?\n");
+  valeur=saisirEntier();
+  while(i<n && indice==0){
+    if(valeur<tab1[i]){
+      indice=i;
+    }
+    i++;
+  }
+  tab2=agrandirTab(tab1, n, valeur, indice);
+  printf("\nVoici le nouveau tableau :\n");
+  afficherTab(tab2, n+1);
+  free(tab2);
+  free(tab1);
+}
+
+void  triInsertionD(void){
+  int* tab; //tableau à trier
+  int n; //la taille du tableau
+  int i; //iterrateur de boucle
+  int j; //iterrateur de boucle
+  int tmp; //variable pour effectuer un échange
+  printf("Quelle est la taile de votre tableau ?\n");
+  do{
+    n=saisirEntier();
+  } while(n<=0);
+  tab=creerTabEntier1D(n);
+  saisirTabEntier1D(tab, n);
+  system("clear");
+  printf("Voici votre tableau :\n");
+  afficherTab(tab, n);
+  for(i=0; i<n; i++){
+    tmp=tab[i];
+    j=i;
+    while(j>0 && tab[j-1]<tmp){
+      tab[j]=tab[j-1];
+      j--;
+    }
+    tab[j]=tmp;
+  }
+  printf("Voici votre tableau trié :\n");
+  afficherTab(tab, n);
+  free(tab);
+}
+
+void  triCoktail(void){
+  int* tab; //tableau à trier
+  int n; //la taille du tableau
+  int estEchange; //variable booléenne
+  int i; //iterrateur de boucle
+  int tmp; //variable pour effectuer un échange
+  printf("Quelle est la taile de votre tableau ?\n");
+  do{
+    n=saisirEntier();
+  } while(n<=0);
+  tab=creerTabEntier1D(n);
+  saisirTabEntier1D(tab, n);
+  system("clear");
+  printf("Voici votre tableau :\n");
+  afficherTab(tab, n);
+  estEchange=1;
+  while(estEchange==1){
+    estEchange=0;
+    for(i=0; i<n-2; i++){
+      if(tab[i]>tab[i+1]){
+        tmp=tab[i];
+        tab[i]=tab[i+1];
+        tab[i+1]=tmp;
+        estEchange=1;
+      }
+    }
+    for(i=n-2; i>0; i--){
+      if(tab[i]>tab[i+1]){
+        tmp=tab[i];
+        tab[i]=tab[i+1];
+        tab[i+1]=tmp;
+        estEchange=1;
+      }
+    }
+  }
+  printf("Voici votre tableau trié :\n");
+  afficherTab(tab, n);  
+}
