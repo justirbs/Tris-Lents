@@ -185,4 +185,21 @@ void  triSelectionR(int* tab, int n, int indice);
  */
 void  triInsertionR(int* tab, int n);
 
+/**
+ *\fn void  echanger(int* tab, int indice1, int indice2)
+ *
+ *\author Justine Ribas <ribasjusti@eisti.eu>
+ *\version 0.1
+ *\date 15 mars 2020
+ *
+ *\brief permet d'échanger deux cases dans un tableau
+ *
+ *
+ *\param tab le tableau à modifier
+ *\param indice1 l'indice de la première case à échanger
+ *\param indice2 l'indice de la deuxième case à échanger
+ *
+ */
+void  echanger(int* tab, int indice1, int indice2);
+
 #endif

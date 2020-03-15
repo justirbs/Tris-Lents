@@ -51,7 +51,7 @@ void saisirTabVF(int* tab, int n){
 
 void saisirTabCouleur(int* tab, int n){
   int i; //iterrateur de boucle
-  printf("Veuillez saisir les cases de votre tableau :\nBleu : 0\nBlanc : 1\nRouge : 2\n\n");
+  printf("Veuillez saisir les cases de votre tableau :\nRouge : 0\nBlanc : 1\nBleu : 2\n\n");
   for(i=0; i<n; i++){
     do{
       printf("Veuillez saisir la case %d : ", i);

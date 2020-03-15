@@ -48,15 +48,12 @@ void triSelection(int* tab, int n){
   int i; //iterrateur de boucle
   int j; //iterrateur de boucle
   int min; //indice de la case minimum
-  int tmp; //variable pour effectuer un échange
   for(i=0; i<n; i++){
     min=i;
     for(j=i; j<n; j++){
       if(tab[min]>tab[j]){
         min=j;
-        tmp=tab[i];
-        tab[i]=tab[min];
-        tab[min]=tmp;
+        echanger(tab, min, i);
       }
     }
   }
@@ -68,16 +65,13 @@ void triSelection(int* tab, int n){
 void triBulle(int* tab, int n){
   int i; //iterrateur de boucle
   int estTrie; //variable booléeene qui indique si un tableau est trié ou non
-  int tmp; //variable pour effectuer un échange
   estTrie=0;
   while(!estTrie){
     estTrie=1;
     for(i=0; i<n-1; i++){
       if(tab[i]>tab[i+1]){
         estTrie=0;
-        tmp=tab[i];
-        tab[i]=tab[i+1];
-        tab[i+1]=tmp;
+        echanger(tab, i, i+1);
       }
     }
   }
@@ -102,6 +96,8 @@ void triInsertion(int* tab, int n){
 void triVF(void){
   int* tab; //le tableau à trier
   int n; //la taille du tableau à trier
+  int min; //l'indice minimum jusqu'au quel le tableau est trié à gauche
+  int max; //l'indice maximum jusqu'au quel le tableau est trié à droite
   printf("Quelle est la taile de votre tableau ?\n");
   do{
     n=saisirEntier();
@@ -111,7 +107,16 @@ void triVF(void){
   system("clear");
   printf("Voici votre tableau :\n");
   afficherTab(tab, n);
-  triInsertion(tab, n);
+  min=0;
+  max=n-1;
+  while(min!=max){
+    if(tab[min]==0){
+      min++;
+    } else {
+      echanger(tab, min, max);
+      max--;
+    }
+  }
   printf("\nVoici le tableau trié :\n");
   afficherTab(tab, n);
   free(tab);
@@ -120,6 +125,8 @@ void triVF(void){
 void  triCouleur(void){
   int* tab; //le tableau à trier
   int n; //la taille du tableau à trier
+  int min; //l'indice minimum jusqu'au quel le tableau est trié à gauche
+  int max; //l'indice maximum jusqu'au quel le tableau est trié à droite
   printf("Quelle est la taile de votre tableau ?\n");
   do{
     n=saisirEntier();
@@ -129,7 +136,19 @@ void  triCouleur(void){
   system("clear");
   printf("Voici votre tableau :\n");
   afficherTab(tab, n);
-  triInsertion(tab, n);
+  min=0;
+  max=n-1;
+  while(min!=max){
+    if(tab[min]==0){
+      min++;
+    }
+    if(tab[min]==1){
+      echanger(tab, min, min+1);
+    } else {
+      echanger(tab, min, max);
+      max--;
+    }
+  }
   printf("\nVoici le tableau trié :\n");
   afficherTab(tab, n);
   free(tab);
@@ -228,7 +247,6 @@ void  triCoktail(void){
   int n; //la taille du tableau
   int estEchange; //variable booléenne
   int i; //iterrateur de boucle
-  int tmp; //variable pour effectuer un échange
   printf("Quelle est la taile de votre tableau ?\n");
   do{
     n=saisirEntier();
@@ -243,17 +261,13 @@ void  triCoktail(void){
     estEchange=0;
     for(i=0; i<n-2; i++){
       if(tab[i]>tab[i+1]){
-        tmp=tab[i];
-        tab[i]=tab[i+1];
-        tab[i+1]=tmp;
+        echanger(tab, i, i+1);
         estEchange=1;
       }
     }
     for(i=n-2; i>0; i--){
       if(tab[i]>tab[i+1]){
-        tmp=tab[i];
-        tab[i]=tab[i+1];
-        tab[i+1]=tmp;
+        echanger(tab, i, i+1);
         estEchange=1;
       }
     }
@@ -266,16 +280,13 @@ void  triCoktail(void){
 void  triSelectionR(int* tab, int n, int indice){
   int min; //l'indice du minimum
   int i; //iterrateur de boucle
-  int tmp; //variable pour effectuer un échange
   min=indice;
   for(i=indice+1; i<n; i++){
     if(tab[i]<tab[min]){
       min=i;
     }
   }
-  tmp=tab[min];
-  tab[min]=tab[indice];
-  tab[indice]=tmp;
+  echanger(tab, min, indice);
   if(indice+1<n){
     triSelectionR(tab, n, indice+1);
   }
@@ -295,4 +306,11 @@ void  triInsertionR(int* tab, int n){
     i--;
   }
   tab[i+1]=fin;
+}
+
+void  echanger(int* tab, int indice1, int indice2){
+  int tmp; //variablepour effectuer un échange
+  tmp=tab[indice1];
+  tab[indice1]=tab[indice2];
+  tab[indice2]=tmp;
 }
