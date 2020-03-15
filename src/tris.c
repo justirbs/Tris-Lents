@@ -125,8 +125,9 @@ void triVF(void){
 void  triCouleur(void){
   int* tab; //le tableau à trier
   int n; //la taille du tableau à trier
-  int min; //l'indice minimum jusqu'au quel le tableau est trié à gauche
-  int max; //l'indice maximum jusqu'au quel le tableau est trié à droite
+  int indice1;
+  int indice2;
+  int indice3;
   printf("Quelle est la taile de votre tableau ?\n");
   do{
     n=saisirEntier();
@@ -136,17 +137,24 @@ void  triCouleur(void){
   system("clear");
   printf("Voici votre tableau :\n");
   afficherTab(tab, n);
-  min=0;
-  max=n-1;
-  while(min!=max){
-    if(tab[min]==0){
-      min++;
-    }
-    if(tab[min]==1){
-      echanger(tab, min, min+1);
-    } else {
-      echanger(tab, min, max);
-      max--;
+  indice1=0;
+  indice2=0;
+  indice3=n-1;
+  while(indice2<=indice3){
+    switch (tab[indice2]) {
+      case 0 :
+        echanger(tab, indice2, indice1);
+        indice1++;
+        indice2++;
+        break;
+      case 1 :
+        indice2++;
+        break;
+      case 2 :
+        echanger(tab, indice2, indice3);
+        indice3--;
+        break;
+      default : printf("erreur\n");
     }
   }
   printf("\nVoici le tableau trié :\n");
